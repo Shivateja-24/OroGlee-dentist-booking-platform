@@ -1,0 +1,42 @@
+### Add Dentist
+POST http://localhost:5000/api/dentists
+Content-Type: application/json
+
+{
+  "name": "Dr. Aria Smith",
+  "qualification": "BDS, MDS",
+  "experience": 8,
+  "clinicName": "Smile Care Dental",
+  "address": "123 Main Street",
+  "location": "Hyderabad",
+  "specialization": "Orthodontics",
+  "photo": "https://randomuser.me/api/portraits/women/44.jpg"
+}
+
+### Get All Dentists
+GET http://localhost:5000/api/dentists
+
+### Admin Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+### Add Appointment (replace DENTIST_ID with _id from add dentist response)
+POST http://localhost:5000/api/appointments
+Content-Type: application/json
+
+{
+  "patientName": "John Doe",
+  "age": 25,
+  "gender": "Male",
+  "appointmentDate": "2024-12-25",
+  "dentist": "69b9a4cc5b1f81f247cbe5e5"
+}
+
+### Get All Appointments (replace TOKEN with token from login response)
+GET http://localhost:5000/api/appointments
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YjlhMzFkNTAyYjU1N2JkYTNmOGQ4YiIsImlhdCI6MTc3Mzc3NDEwMCwiZXhwIjoxNzczODYwNTAwfQ.3HMOmdF4HNiboVI6-U2C4uEM5rJNk5m07jLirQ1oB3Y"
