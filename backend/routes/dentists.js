@@ -11,6 +11,16 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const dentist = await Dentist.findById(req.params.id);
+    if (!dentist) return res.status(404).json({ message: "Dentist not found" });
+    res.json(dentist);
+  } catch (e) {
+    res.status(500).json({ message: e.message });
+  }
+});
+
 router.post("/", async (req, res) => {
   try {
     const dentist = new Dentist(req.body);
